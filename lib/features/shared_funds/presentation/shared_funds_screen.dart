@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
 
@@ -53,7 +54,7 @@ class SharedFundsScreen extends StatelessWidget {
             myRole: 'Thành viên',
             color: AppColors.peach,
           ),
-        ],
+        ].animate(interval: 150.ms).fade(duration: 500.ms).slideX(begin: -0.1, curve: Curves.easeOutQuad),
       ),
     );
   }

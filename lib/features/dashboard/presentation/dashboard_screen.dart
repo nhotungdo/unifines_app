@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
@@ -180,9 +181,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildHeader(),
+                _buildHeader().animate().fade(duration: 500.ms).slideY(begin: -0.2, curve: Curves.easeOutBack),
                 SizedBox(height: 24.h),
-                _buildHeroBalance(),
+                _buildHeroBalance().animate().fade(delay: 200.ms, duration: 500.ms).scaleXY(begin: 0.9, curve: Curves.easeOutBack),
                 SizedBox(height: 24.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -217,7 +218,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       AppColors.peach,
                       () {},
                     ),
-                  ],
+                  ].animate(interval: 100.ms).fade(duration: 400.ms).slideY(begin: 0.2, curve: Curves.easeOutBack),
                 ),
                 SizedBox(height: 24.h),
                 Text(

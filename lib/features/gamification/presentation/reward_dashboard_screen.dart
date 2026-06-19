@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
 import '../../../shared/widgets/kawaii_button.dart';
@@ -17,7 +18,7 @@ class RewardDashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildBalanceHero(context),
+            _buildBalanceHero(context).animate().fade(duration: 500.ms).scaleXY(begin: 0.9, curve: Curves.easeOutBack),
             SizedBox(height: 24.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +50,7 @@ class RewardDashboardScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            ).animate().fade(delay: 200.ms).slideX(begin: 0.1),
             SizedBox(height: 16.h),
             GridView.count(
               shrinkWrap: true,
@@ -87,7 +88,7 @@ class RewardDashboardScreen extends StatelessWidget {
                   Icons.face_retouching_natural_rounded,
                   AppColors.peach,
                 ),
-              ],
+              ].animate(interval: 100.ms).fade(duration: 400.ms).scaleXY(begin: 0.8, curve: Curves.easeOutBack),
             ),
           ],
         ),

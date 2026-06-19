@@ -34,40 +34,36 @@ class _FloatingUnicoState extends State<FloatingUnico> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        widget.child,
-        Positioned(
-          left: position.dx,
-          top: position.dy,
-          child: Draggable(
-            feedback: const UnicoMascot(
-              size: 60,
-              expression: UnicoExpression.thinking,
-            ),
-            childWhenDragging: const SizedBox.shrink(),
-            onDragEnd: (details) {
-              setState(() {
-                // Keep it within screen bounds
-                final size = MediaQuery.of(context).size;
-                double newX = details.offset.dx;
-                double newY = details.offset.dy;
-
-                if (newX < 0) newX = 0;
-                if (newX > size.width - 60.w) newX = size.width - 60.w;
-                if (newY < 0) newY = 0;
-                if (newY > size.height - 60.h) newY = size.height - 60.h;
-
-                position = Offset(newX, newY);
-              });
-            },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Stack(
+        children: [
+          widget.child,
+          Positioned(
+            left: position.dx,
+            top: position.dy,
             child: GestureDetector(
               onTap: () => _openChat(context),
+              onPanUpdate: (details) {
+                setState(() {
+                  final size = MediaQuery.of(context).size;
+                  double newX = position.dx + details.delta.dx;
+                  double newY = position.dy + details.delta.dy;
+
+                  // Keep it within screen bounds
+                  if (newX < 0) newX = 0;
+                  if (newX > size.width - 60.w) newX = size.width - 60.w;
+                  if (newY < 0) newY = 0;
+                  if (newY > size.height - 60.h) newY = size.height - 60.h;
+
+                  position = Offset(newX, newY);
+                });
+              },
               child: const UnicoMascot(size: 60),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

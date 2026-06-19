@@ -23,15 +23,16 @@ class MyApp extends ConsumerWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return FloatingUnico(
-          child: MaterialApp.router(
-            title: 'UniFines',
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.galaxyDarkTheme,
-            themeMode: ThemeMode.system, // Switch dynamically based on system
-            routerConfig: goRouter,
-            debugShowCheckedModeBanner: false,
-          ),
+        return MaterialApp.router(
+          title: 'UniFines',
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.galaxyDarkTheme,
+          themeMode: ThemeMode.system,
+          routerConfig: goRouter,
+          debugShowCheckedModeBanner: false,
+          builder: (context, routerChild) {
+            return FloatingUnico(child: routerChild!);
+          },
         );
       },
     );

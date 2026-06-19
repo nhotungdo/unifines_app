@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../data/transaction_provider.dart';
 import '../../domain/transaction_model.dart';
@@ -61,7 +62,9 @@ class TransactionList extends ConsumerWidget {
                       color: color.withOpacity(0.2),
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(icon, color: color),
+                    child: Icon(icon, color: color)
+                        .animate(onPlay: (c) => c.repeat(reverse: true))
+                        .scaleXY(end: 1.1, duration: 2.seconds),
                   ),
                   SizedBox(width: 16.w),
                   Expanded(
@@ -96,7 +99,7 @@ class TransactionList extends ConsumerWidget {
                   ),
                 ],
               ),
-            );
+            ).animate().fade(duration: 500.ms, delay: (index * 100).ms).slideX(begin: 0.1, curve: Curves.easeOutQuad);
           },
         );
       },
