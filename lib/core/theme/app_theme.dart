@@ -6,15 +6,15 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      primaryColor: AppColors.mint,
+      primaryColor: AppColors.peach,
       scaffoldBackgroundColor: AppColors.backgroundLight,
       colorScheme: const ColorScheme.light(
-        primary: AppColors.mint,
+        primary: AppColors.peach,
         secondary: AppColors.skyBlue,
         surface: AppColors.surfaceLight,
         error: AppColors.error,
-        onPrimary: Colors.white,
-        onSecondary: Colors.white,
+        onPrimary: AppColors.textPrimaryLight,
+        onSecondary: AppColors.textPrimaryLight,
         onSurface: AppColors.textPrimaryLight,
         onError: Colors.white,
       ),
@@ -33,10 +33,10 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.mint,
-          foregroundColor: Colors.white,
+          backgroundColor: AppColors.peach,
+          foregroundColor: AppColors.textPrimaryLight,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(99), // Pill shape
           ),
           elevation: 0,
         ),
@@ -87,9 +87,9 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.lavender,
-          foregroundColor: Colors.white,
+          foregroundColor: AppColors.textPrimaryLight,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(99), // Pill shape
           ),
           elevation: 0,
         ),

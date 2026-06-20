@@ -18,8 +18,8 @@ class GlassContainer extends StatelessWidget {
     this.height,
     this.padding = const EdgeInsets.all(16.0),
     this.margin = EdgeInsets.zero,
-    this.borderRadius = const BorderRadius.all(Radius.circular(20)),
-    this.blur = 10.0,
+    this.borderRadius = const BorderRadius.all(Radius.circular(32)),
+    this.blur = 16.0,
     this.gradientColors,
   });
 
@@ -47,10 +47,10 @@ class GlassContainer extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(isDark ? 0.3 : 0.05),
-            blurRadius: 10,
-            spreadRadius: 1,
-            offset: const Offset(0, 4),
+            color: const Color.fromRGBO(31, 38, 135, 1).withOpacity(isDark ? 0.2 : 0.05),
+            blurRadius: 32,
+            spreadRadius: 0,
+            offset: const Offset(0, 8),
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
 
@@ -64,7 +65,7 @@ class DebtManagementScreen extends StatelessWidget {
             paid: 5000000,
             isDebt: true,
           ),
-      ],
+      ].animate(interval: 100.ms).fade(duration: 400.ms).slideY(begin: 0.1, curve: Curves.easeOutBack),
     );
   }
 
@@ -129,15 +130,15 @@ class DebtManagementScreen extends StatelessWidget {
                     color: AppColors.success.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Đã xong',
                     style: TextStyle(
                       color: AppColors.success,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12.sp,
+                      fontSize: 12,
                     ),
                   ),
-                )
+                ).animate().scale(curve: Curves.elasticOut, duration: 600.ms)
               else
                 Text(
                   'Hạn: $dueDate',

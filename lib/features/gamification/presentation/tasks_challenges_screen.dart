@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
 
@@ -89,7 +90,7 @@ class TasksChallengesScreen extends StatelessWidget {
           reward: 20,
           isCompleted: false,
         ),
-      ],
+      ].animate(interval: 100.ms).fade(duration: 400.ms).slideY(begin: 0.2, curve: Curves.easeOutBack),
     );
   }
 
@@ -114,7 +115,7 @@ class TasksChallengesScreen extends StatelessWidget {
           progress: 3,
           total: 7,
         ),
-      ],
+      ].animate(interval: 100.ms).fade(duration: 400.ms).slideY(begin: 0.2, curve: Curves.easeOutBack),
     );
   }
 

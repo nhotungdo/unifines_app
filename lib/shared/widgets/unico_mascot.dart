@@ -55,7 +55,7 @@ class UnicoMascot extends StatelessWidget {
           ),
         )
         .animate(onPlay: (controller) => controller.repeat(reverse: true))
-        .scaleXY(end: 1.1, duration: 1.seconds, curve: Curves.easeInOut)
+        .scaleXY(end: 1.15, duration: 800.ms, curve: Curves.easeInOutBack)
         .shimmer(duration: 2.seconds);
   }
 }

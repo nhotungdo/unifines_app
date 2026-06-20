@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../shared/widgets/glass_container.dart';
 
@@ -46,7 +47,7 @@ class SavingsGoalsScreen extends StatelessWidget {
               color: AppColors.success,
               isCompleted: true,
             ),
-          ],
+          ].animate(interval: 100.ms).fade(duration: 400.ms).slideY(begin: 0.1, curve: Curves.easeOutBack),
         ),
       ),
     );
@@ -110,7 +111,7 @@ class SavingsGoalsScreen extends StatelessWidget {
                     Icons.check_circle_rounded,
                     color: AppColors.success,
                     size: 28.sp,
-                  )
+                  ).animate().scale(curve: Curves.elasticOut, duration: 600.ms)
                 else
                   Text(
                     '${(percent * 100).toStringAsFixed(0)}%',
