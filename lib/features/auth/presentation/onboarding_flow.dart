@@ -56,31 +56,33 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.all(32.w),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        UnicoMascot(
-                          expression:
-                              _pages[index]['expression'] as UnicoExpression,
-                          size: 200,
-                        ),
-                        SizedBox(height: 48.h),
-                        Text(
-                          _pages[index]['title'] as String,
-                          style: Theme.of(
-                            context,
-                          ).textTheme.displayLarge?.copyWith(fontSize: 28.sp),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 16.h),
-                        Text(
-                          _pages[index]['description'] as String,
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodyLarge?.copyWith(fontSize: 16.sp),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          UnicoMascot(
+                            expression:
+                                _pages[index]['expression'] as UnicoExpression,
+                            size: 200,
+                          ),
+                          SizedBox(height: 48.h),
+                          Text(
+                            _pages[index]['title'] as String,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.displayLarge?.copyWith(fontSize: 28.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 16.h),
+                          Text(
+                            _pages[index]['description'] as String,
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(fontSize: 16.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -101,7 +103,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
                         decoration: BoxDecoration(
                           color: _currentPage == index
                               ? AppColors.mint
-                              : AppColors.mint.withOpacity(0.3),
+                              : AppColors.mint.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
